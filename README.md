@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Go-Bike-Network-Analysis
 ## by Sahil Kumar Sharma
 
