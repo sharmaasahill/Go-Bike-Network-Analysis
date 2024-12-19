@@ -1,5 +1,4 @@
-{# Jupyter Notebook Toggle Template for Slides by Damian Avila 
-   from http://www.damian.oquanta.info/posts/hide-the-input-cells-from-your-ipython-slides.html
+{# Jupyter Notebook Toggle Template Slides by Sahil Kumar Sharma
 #}
 
 {%- extends 'slides_reveal.tpl' -%}
