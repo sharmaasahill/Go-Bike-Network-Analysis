@@ -1,11 +1,9 @@
 <<<<<<< HEAD
-# Ford GoBike System Data Exploration
-## by Ayanwoye Gideon Ayandele
+# Go-Bike-Network-Analysis
+## by Sahil Kumar Sharma
 
 ## Overview
-Ford GoBike System Data Exploration and Findings Communication: This document explores a dataset with information about individual rides made in a bike-sharing system covering the greater San Francisco Bay area in 2019
-## Slide Preview
-![SLide_communicate_findinds](https://user-images.githubusercontent.com/58152694/143484454-a2fb6bf8-c964-4ba2-8584-596ac6259696.gif)
+Go-Bike-Network-Analysis Exploration and Findings Communication: This document explores a dataset with information about individual rides made in a bike-sharing system covering the greater San Francisco Bay area in 2019
 
 
 ## Dataset
@@ -44,7 +42,4 @@ For the presentation:\
 
 ## Feedback
 
-If you have any feedback, please reach out to me at ayangidel@hotmail.com
-=======
-# Go-Bike-Network-Analysis-
->>>>>>> 4b17ad754bfd299877756a3ab9dacd6cfcfebd41
+If you have any feedback, please reach out to me at i.sahilkrsharma@gmail.com
