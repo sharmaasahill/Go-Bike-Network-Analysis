@@ -79,7 +79,7 @@ Bike-Sharing-Analysis/
 ### Quick Start
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/sharmaasahill/Go-Bike-Network-Analysis.git
 cd Bike-Sharing-Analysis
 
 # Create virtual environment
@@ -276,8 +276,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Author**: Sahil Kumar Sharma
 - **Email**: i.sahilkrsharma@gmail.com
-- **LinkedIn**: [Sahil Kumar Sharma](https://linkedin.com/in/sahilkrsharma)
-- **GitHub**: [Project Repository](https://github.com/yourusername/bike-sharing-analysis)
+- **LinkedIn**: [Sahil Kumar Sharma](https://www.linkedin.com/in/sharmaasahill/)
+- **GitHub**: [Project Repository](https://github.com/sharmaasahill/Go-Bike-Network-Analysis)
 
 ## Optimization Summary
 
