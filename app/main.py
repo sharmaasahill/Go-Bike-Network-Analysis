@@ -1,6 +1,6 @@
 """
-Bike-Sharing Data Analysis Dashboard
-Optimized for Data Analyst role
+Go-Bike-Network-Analysis Dashboard
+Optimized for Data Analyst Portfolio
 """
 
 import streamlit as st
@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 # Page configuration
 st.set_page_config(
     page_title="Go-Bike-Network-Analysis",
-    page_icon="📊",
+    page_icon="🚲",
     layout="wide",
     initial_sidebar_state="expanded"
 )

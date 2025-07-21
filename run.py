@@ -1,85 +1,79 @@
 #!/usr/bin/env python3
 """
-Simple runner script for Modern Bike Analytics Platform
+Go-Bike-Network-Analysis - Runner Script
+Simple and efficient application launcher
 """
 
 import subprocess
 import sys
 import os
-from pathlib import Path
 
 def check_python_version():
     """Check if Python version is compatible"""
     if sys.version_info < (3, 9):
-        print("Error: Python 3.9 or higher is required")
+        print("❌ Python 3.9 or higher is required!")
         print(f"Current version: {sys.version}")
         return False
     return True
 
+def check_dependencies():
+    """Check if required packages are installed"""
+    try:
+        import streamlit
+        import pandas
+        import plotly
+        import folium
+        import scipy
+        import matplotlib
+        return True
+    except ImportError as e:
+        print(f"❌ Missing dependency: {e}")
+        print("💡 Run: pip install -r requirements.txt")
+        return False
+
 def check_data_file():
-    """Check if the data file exists"""
+    """Check if data file exists"""
     data_file = "201902-fordgobike-tripdata.csv"
     if not os.path.exists(data_file):
-        print(f"Error: Data file '{data_file}' not found")
-        print("Please ensure the Ford GoBike dataset is in the project root directory")
+        print(f"❌ Data file not found: {data_file}")
+        print("📥 Download from: https://s3.amazonaws.com/baywheels-data/index.html")
         return False
     return True
 
-def install_dependencies():
-    """Install required dependencies"""
-    try:
-        print("Installing dependencies...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-        print("Dependencies installed successfully!")
-        return True
-    except subprocess.CalledProcessError as e:
-        print(f"Error installing dependencies: {e}")
-        return False
-
-def run_application():
-    """Run the Streamlit application"""
-    try:
-        print("Starting Modern Bike Analytics Platform...")
-        print("Dashboard will be available at: http://localhost:8501")
-        print("Press Ctrl+C to stop the application")
-        print("-" * 50)
-        
-        subprocess.run([
-            sys.executable, "-m", "streamlit", "run", 
-            "app/main.py", 
-            "--server.port=8501",
-            "--server.headless=true"
-        ])
-    except KeyboardInterrupt:
-        print("\nApplication stopped by user")
-    except Exception as e:
-        print(f"Error running application: {e}")
-
 def main():
-    """Main function"""
-    print("Modern Bike Analytics Platform")
+    """Main runner function"""
+    print("🚲 Go-Bike-Network-Analysis")
     print("=" * 40)
     
-    # Check Python version
+    # Environment checks
     if not check_python_version():
         sys.exit(1)
     
-    # Check data file
-    if not check_data_file():
+    if not check_dependencies():
         sys.exit(1)
     
-    # Install dependencies if needed
-    try:
-        import streamlit
-        import plotly
-        import pandas
-        print("All dependencies are already installed")
-    except ImportError:
-        if not install_dependencies():
+    if not check_data_file():
+        print("\n⚠️  You can still run the app, but some features may not work.")
+        response = input("Continue anyway? (y/n): ")
+        if response.lower() != 'y':
             sys.exit(1)
     
-    # Run the application
-    run_application()
+    print("✅ All checks passed!")
+    print("🚀 Starting Streamlit application...")
+    print("📱 Open your browser to the URL shown below")
+    print("=" * 40)
+    
+    # Launch Streamlit
+    try:
+        subprocess.run([
+            sys.executable, "-m", "streamlit", "run", 
+            "app/main.py", "--server.port", "8501"
+        ], check=True)
+    except KeyboardInterrupt:
+        print("\n👋 Application stopped by user")
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Error running Streamlit: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main() 
