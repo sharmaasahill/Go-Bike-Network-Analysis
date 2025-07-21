@@ -1,5 +1,5 @@
-# Bike-Sharing Data Analysis Project
-## Optimized Data Analysis for Data Analyst Role
+# Go-Bike-Network-Analysis
+## Interactive Data Analysis Dashboard
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
@@ -8,7 +8,7 @@
 
 ## Project Overview
 
-An **optimized data analysis project** demonstrating essential Data Analyst skills using bike-sharing data. This project showcases efficient data cleaning, exploration, visualization, and business insights generation - key competencies for Data Analyst roles.
+**Go-Bike-Network-Analysis** is a comprehensive data analysis project demonstrating essential Data Analyst skills using bike-sharing data from the San Francisco Bay Area. This project showcases efficient data cleaning, exploration, visualization, and business insights generation - key competencies for Data Analyst roles.
 
 ### Key Features
 - **Executive Summary** - High-level business metrics and insights
@@ -60,7 +60,7 @@ An **optimized data analysis project** demonstrating essential Data Analyst skil
 ## Project Structure
 
 ```
-Bike-Sharing-Analysis/
+Go-Bike-Network-Analysis/
 ├── app/
 │   └── main.py              # Optimized Streamlit application
 ├── 201902-fordgobike-tripdata.csv  # Dataset
@@ -80,7 +80,7 @@ Bike-Sharing-Analysis/
 ```bash
 # Clone the repository
 git clone https://github.com/sharmaasahill/Go-Bike-Network-Analysis.git
-cd Bike-Sharing-Analysis
+cd Go-Bike-Network-Analysis
 
 # Create virtual environment
 python -m venv venv
@@ -276,8 +276,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Author**: Sahil Kumar Sharma
 - **Email**: i.sahilkrsharma@gmail.com
-- **LinkedIn**: [Sahil Kumar Sharma](https://www.linkedin.com/in/sharmaasahill/)
-- **GitHub**: [Project Repository](https://github.com/sharmaasahill/Go-Bike-Network-Analysis)
+- **LinkedIn**: [Sahil Kumar Sharma](https://linkedin.com/in/sahilkrsharma)
+- **GitHub**: [Go-Bike-Network-Analysis Repository](https://github.com/sharmaasahill/Go-Bike-Network-Analysis)
+
+## About This Project
+
+This is a comprehensive data analysis project created to demonstrate essential Data Analyst skills. The project analyzes bike-sharing data from the Ford GoBike system in San Francisco Bay Area, providing comprehensive insights into user behavior, system performance, and business opportunities.
+
+### Project Objectives
+- **Skill Demonstration**: Showcase data analysis, visualization, and business intelligence skills
+- **Portfolio Piece**: Create a professional project for job applications
+- **Learning Experience**: Practice with real-world data and modern tools
+- **Interview Preparation**: Demonstrate technical and analytical capabilities
 
 ## Optimization Summary
 
@@ -297,4 +307,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**This optimized version focuses on essential features while maintaining high performance and clean code structure.**
+**This is a comprehensive data analysis project demonstrating essential Data Analyst skills with a modern, optimized approach. Perfect for showcasing analytical capabilities in job interviews!**

@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 # Page configuration
 st.set_page_config(
-    page_title="Bike-Sharing Data Analysis",
+    page_title="Go-Bike-Network-Analysis",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -432,8 +432,8 @@ class BikeSharingAnalysis:
         """Main application runner"""
         
         # Header
-        st.markdown('<h1 class="main-header">Bike-Sharing Data Analysis</h1>', unsafe_allow_html=True)
-        st.markdown('<p class="sub-header">Comprehensive Data Analysis Project | February 2019 Dataset</p>', unsafe_allow_html=True)
+        st.markdown('<h1 class="main-header">Go-Bike-Network-Analysis</h1>', unsafe_allow_html=True)
+        st.markdown('<p class="sub-header">Interactive Data Analysis Dashboard | February 2019 Dataset</p>', unsafe_allow_html=True)
         
         # Load data
         df = self.load_data()
