@@ -5,6 +5,10 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
 [![Plotly](https://img.shields.io/badge/Plotly-5.15+-purple.svg)](https://plotly.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GoBike%20App-brightgreen.svg)](https://gobike.streamlit.app/)
+
+## 🚀 Live Demo
+**Try the interactive dashboard:** [https://gobike.streamlit.app/](https://gobike.streamlit.app/)
 
 ## Project Overview
 
@@ -97,6 +101,11 @@ pip install -r requirements.txt
 # Run the application
 python run.py
 ```
+
+### 🎯 Live Demo
+**No installation required!** Try the interactive dashboard directly: [https://gobike.streamlit.app/](https://gobike.streamlit.app/)
+
+**Mobile Compatible:** The dashboard is fully responsive and works on all devices including smartphones and tablets.
 
 ### Data Requirements
 The application requires the Ford GoBike dataset (`201902-fordgobike-tripdata.csv`) with the following columns:

@@ -22,7 +22,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for monochromatic white/black theme
+# Custom CSS for monochromatic white/black theme with mobile responsiveness
 st.markdown("""
 <style>
     /* Main theme colors - Monochromatic white/black */
@@ -39,6 +39,83 @@ st.markdown("""
         --warning-color: #ffffff;
         --error-color: #ffffff;
         --hover-color: #3a3a3a;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .main-header {
+            font-size: 1.8rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .sub-header {
+            font-size: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .metric-card {
+            padding: 1rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .analysis-section {
+            padding: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .insight-box {
+            padding: 0.8rem !important;
+            margin: 0.5rem 0 !important;
+        }
+        
+        .stButton > button {
+            padding: 0.5rem 1rem !important;
+            font-size: 0.9rem !important;
+        }
+        
+        .stTabs [data-baseweb="tab"] {
+            padding: 8px 12px !important;
+            font-size: 0.8rem !important;
+        }
+        
+        .stMetric {
+            padding: 0.5rem !important;
+        }
+        
+        .stDataFrame {
+            font-size: 0.8rem !important;
+        }
+        
+        .stMarkdown {
+            font-size: 0.9rem !important;
+        }
+        
+        .stSubheader {
+            font-size: 1.1rem !important;
+        }
+        
+        .stHeader {
+            font-size: 1.1rem !important;
+        }
+    }
+    
+    /* Tablet responsiveness */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .main-header {
+            font-size: 2rem !important;
+        }
+        
+        .sub-header {
+            font-size: 1.1rem !important;
+        }
+        
+        .metric-card {
+            padding: 1.2rem !important;
+        }
+        
+        .analysis-section {
+            padding: 1.2rem !important;
+        }
     }
     
     .main-header {
@@ -148,6 +225,21 @@ st.markdown("""
         color: var(--text-primary);
     }
     
+    /* Mobile sidebar optimization */
+    @media (max-width: 768px) {
+        .sidebar .sidebar-content {
+            padding: 0.5rem !important;
+        }
+        
+        .sidebar .sidebar-content .stMarkdown {
+            font-size: 0.8rem !important;
+        }
+        
+        .sidebar .sidebar-content .stSubheader {
+            font-size: 1rem !important;
+        }
+    }
+    
     /* Tabs styling - Monochromatic */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
@@ -191,6 +283,17 @@ st.markdown("""
         border: 1px solid var(--border-color);
     }
     
+    /* Mobile chart optimization */
+    @media (max-width: 768px) {
+        .stPlotlyChart {
+            height: 300px !important;
+        }
+        
+        .stPlotlyChart .js-plotly-plot {
+            height: 300px !important;
+        }
+    }
+    
     /* Text styling */
     .stMarkdown {
         color: var(--text-primary);
@@ -225,6 +328,17 @@ st.markdown("""
         color: var(--text-primary);
         border-radius: 8px;
         border: 1px solid var(--border-color);
+    }
+    
+    /* Mobile dataframe optimization */
+    @media (max-width: 768px) {
+        .stDataFrame {
+            overflow-x: auto !important;
+        }
+        
+        .stDataFrame table {
+            font-size: 0.7rem !important;
+        }
     }
     
     /* Form elements styling */
@@ -359,6 +473,25 @@ st.markdown("""
     .stMultiselect > div > div:focus-within {
         border-color: var(--primary-color);
         box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Touch-friendly interactions for mobile */
+    @media (max-width: 768px) {
+        .stButton > button {
+            min-height: 44px !important;
+            touch-action: manipulation !important;
+        }
+        
+        .stSelectbox > div > div,
+        .stMultiselect > div > div {
+            min-height: 44px !important;
+            touch-action: manipulation !important;
+        }
+        
+        .stSlider > div > div > div {
+            min-height: 44px !important;
+            touch-action: manipulation !important;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -537,8 +670,8 @@ class BikeSharingAnalysis:
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Executive Summary")
         
-        # Key metrics in a clean layout
-        col1, col2, col3, col4 = st.columns(4)
+        # Key metrics in a responsive layout
+        col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
         
         with col1:
             st.metric("Total Trips", f"{len(df):,}")
@@ -555,11 +688,11 @@ class BikeSharingAnalysis:
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # Key insights
+        # Key insights in responsive layout
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Key Insights")
         
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns([1, 1])
         
         with col1:
             st.markdown('<div class="insight-box">', unsafe_allow_html=True)
@@ -583,8 +716,8 @@ class BikeSharingAnalysis:
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Data Exploration")
         
-        # Dataset overview
-        col1, col2 = st.columns(2)
+        # Dataset overview in responsive layout
+        col1, col2 = st.columns([1, 1])
         
         with col1:
             st.write("**Dataset Overview:**")
@@ -600,11 +733,11 @@ class BikeSharingAnalysis:
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # Essential visualizations
+        # Essential visualizations in responsive layout
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Key Visualizations")
         
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns([1, 1])
         
         with col1:
             # Trip duration distribution
@@ -615,8 +748,8 @@ class BikeSharingAnalysis:
                 title="Trip Duration Distribution",
                 labels={'duration_min': 'Duration (minutes)', 'count': 'Number of Trips'}
             )
-            fig.update_layout(showlegend=False)
-            st.plotly_chart(fig, use_container_width=True)
+            fig.update_layout(showlegend=False, height=400)
+            st.plotly_chart(fig, use_container_width=True, key="duration_dist_hist")
         
         with col2:
             # User type distribution
@@ -626,9 +759,10 @@ class BikeSharingAnalysis:
                 names=user_counts.index,
                 title="User Type Distribution"
             )
-            st.plotly_chart(fig, use_container_width=True)
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True, key="user_type_pie")
         
-        # Hourly usage pattern
+        # Hourly usage pattern (full width for better mobile view)
         hourly_usage = df.groupby('start_hour').size()
         fig = px.line(
             x=hourly_usage.index, 
@@ -636,7 +770,8 @@ class BikeSharingAnalysis:
             title="Hourly Usage Pattern",
             labels={'x': 'Hour of Day', 'y': 'Number of Trips'}
         )
-        st.plotly_chart(fig, use_container_width=True)
+        fig.update_layout(height=400)
+        st.plotly_chart(fig, use_container_width=True, key="hourly_usage_line")
         
         st.markdown('</div>', unsafe_allow_html=True)
     
@@ -645,8 +780,8 @@ class BikeSharingAnalysis:
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Business Insights")
         
-        # Key business metrics
-        col1, col2, col3 = st.columns(3)
+        # Key business metrics in responsive layout
+        col1, col2, col3 = st.columns([1, 1, 1])
         
         with col1:
             total_trips = len(df)
@@ -663,11 +798,11 @@ class BikeSharingAnalysis:
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # Key recommendations
+        # Key recommendations in responsive layout
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Business Recommendations")
         
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns([1, 1])
         
         with col1:
             st.markdown('<div class="insight-box">', unsafe_allow_html=True)
@@ -692,8 +827,8 @@ class BikeSharingAnalysis:
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Geographic Analysis")
         
-        # Station performance
-        col1, col2 = st.columns(2)
+        # Station performance in responsive layout
+        col1, col2 = st.columns([1, 1])
         
         with col1:
             st.write("**Top Starting Stations:**")
@@ -709,7 +844,7 @@ class BikeSharingAnalysis:
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # Simple map (if coordinates available)
+        # Simple map (if coordinates available) - full width for mobile
         if 'start_station_latitude' in df.columns and 'start_station_longitude' in df.columns:
             st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
             st.subheader("Station Map")
@@ -734,7 +869,7 @@ class BikeSharingAnalysis:
                         popup=row['start_station_name']
                     ).add_to(m)
                 
-                st_folium(m, use_container_width=True)
+                st_folium(m, use_container_width=True, height=400)
             
             st.markdown('</div>', unsafe_allow_html=True)
     
@@ -743,7 +878,7 @@ class BikeSharingAnalysis:
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Trends & Patterns")
         
-        # Daily trends
+        # Daily trends (full width for better mobile view)
         daily_trends = df.groupby('date').size()
         fig = px.line(
             x=daily_trends.index, 
@@ -751,10 +886,11 @@ class BikeSharingAnalysis:
             title="Daily Trip Volume",
             labels={'x': 'Date', 'y': 'Number of Trips'}
         )
-        st.plotly_chart(fig, use_container_width=True)
+        fig.update_layout(height=400)
+        st.plotly_chart(fig, use_container_width=True, key="daily_trends_line")
         
-        # Day of week patterns
-        col1, col2 = st.columns(2)
+        # Day of week patterns in responsive layout
+        col1, col2 = st.columns([1, 1])
         
         with col1:
             day_patterns = df['day_of_week'].value_counts()
@@ -764,7 +900,8 @@ class BikeSharingAnalysis:
                 title="Trips by Day of Week",
                 labels={'x': 'Day of Week', 'y': 'Number of Trips'}
             )
-            st.plotly_chart(fig, use_container_width=True)
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True, key="day_patterns_bar")
         
         with col2:
             # Hourly patterns by day type
@@ -778,7 +915,8 @@ class BikeSharingAnalysis:
                 labels={'x': 'Hour of Day', 'y': 'Number of Trips'}
             )
             fig.add_scatter(x=weekend_hours.index, y=weekend_hours.values, name='Weekend')
-            st.plotly_chart(fig, use_container_width=True)
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True, key="weekday_weekend_line")
         
         st.markdown('</div>', unsafe_allow_html=True)
     
@@ -794,7 +932,7 @@ class BikeSharingAnalysis:
         )
         
         if analysis_type == "Descriptive Statistics":
-            col1, col2 = st.columns(2)
+            col1, col2 = st.columns([1, 1])
             
             with col1:
                 st.subheader("Numerical Variables Summary")
@@ -819,30 +957,37 @@ class BikeSharingAnalysis:
             st.subheader("Correlation Analysis")
             
             # Select numerical columns for correlation
-            numeric_cols = ['duration_min', 'start_hour']
+            numerical_cols = ['duration_min', 'start_hour']
             if 'user_age' in df.columns:
-                numeric_cols.append('user_age')
+                numerical_cols.append('user_age')
+            if 'trip_distance_km' in df.columns:
+                numerical_cols.append('trip_distance_km')
             
-            corr_matrix = df[numeric_cols].corr()
-            
-            fig = px.imshow(
-                corr_matrix,
-                title="Correlation Heatmap",
-                color_continuous_scale='RdBu',
-                aspect="auto"
-            )
-            st.plotly_chart(fig, use_container_width=True)
-            
-            st.write("**Key Correlations:**")
-            for i in range(len(numeric_cols)):
-                for j in range(i+1, len(numeric_cols)):
-                    corr_val = corr_matrix.iloc[i, j]
-                    st.write(f"- {numeric_cols[i]} vs {numeric_cols[j]}: {corr_val:.3f}")
+            if len(numerical_cols) > 1:
+                corr_matrix = df[numerical_cols].corr()
+                
+                fig = px.imshow(
+                    corr_matrix,
+                    text_auto=True,
+                    aspect="auto",
+                    title="Correlation Heatmap",
+                    color_continuous_scale='RdBu'
+                )
+                fig.update_layout(height=500)
+                st.plotly_chart(fig, use_container_width=True, key="correlation_heatmap")
+                
+                st.write("**Key Correlations:**")
+                for i in range(len(numerical_cols)):
+                    for j in range(i+1, len(numerical_cols)):
+                        corr_value = corr_matrix.iloc[i, j]
+                        st.write(f"- {numerical_cols[i]} vs {numerical_cols[j]}: {corr_value:.3f}")
+            else:
+                st.write("Not enough numerical variables for correlation analysis.")
         
         elif analysis_type == "Hypothesis Testing":
             st.subheader("Hypothesis Testing")
             
-            col1, col2 = st.columns(2)
+            col1, col2 = st.columns([1, 1])
             
             with col1:
                 # T-test: Duration by user type
@@ -869,7 +1014,7 @@ class BikeSharingAnalysis:
         elif analysis_type == "Distribution Analysis":
             st.subheader("Distribution Analysis")
             
-            col1, col2 = st.columns(2)
+            col1, col2 = st.columns([1, 1])
             
             with col1:
                 # Duration distribution with normal curve
@@ -891,7 +1036,7 @@ class BikeSharingAnalysis:
                 ax.set_title('Q-Q Plot: Duration vs Normal Distribution')
                 st.pyplot(fig)
             
-            # Normality test
+            # Normality test (full width for mobile)
             stat, p_value = shapiro(df['duration_min'])
             st.write(f"**Shapiro-Wilk Test for Normality:**")
             st.write(f"- Statistic: {stat:.3f}")
@@ -905,8 +1050,8 @@ class BikeSharingAnalysis:
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Data Quality Dashboard")
         
-        # Data quality overview
-        col1, col2, col3, col4 = st.columns(4)
+        # Data quality overview in responsive layout
+        col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
         
         with col1:
             total_rows = len(df)
@@ -928,11 +1073,11 @@ class BikeSharingAnalysis:
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # Column-wise analysis
+        # Column-wise analysis in responsive layout
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Column-wise Data Quality")
         
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns([1, 1])
         
         with col1:
             st.write("**Missing Values by Column:**")
@@ -961,7 +1106,7 @@ class BikeSharingAnalysis:
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # Data validation
+        # Data validation (full width for mobile)
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Data Validation Checks")
         
@@ -1007,8 +1152,8 @@ class BikeSharingAnalysis:
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("KPI Dashboard")
         
-        # Key Performance Indicators
-        col1, col2, col3, col4 = st.columns(4)
+        # Key Performance Indicators in responsive layout
+        col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
         
         with col1:
             total_revenue = len(df) * 3.50
@@ -1029,7 +1174,7 @@ class BikeSharingAnalysis:
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # KPI Trends
+        # KPI Trends in responsive layout
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("KPI Trends Over Time")
         
@@ -1042,8 +1187,8 @@ class BikeSharingAnalysis:
         daily_kpis.columns = ['date', 'daily_trips', 'avg_duration', 'subscriber_rate']
         daily_kpis['daily_revenue'] = daily_kpis['daily_trips'] * 3.50
         
-        # KPI trend charts
-        col1, col2 = st.columns(2)
+        # KPI trend charts in responsive layout
+        col1, col2 = st.columns([1, 1])
         
         with col1:
             fig = px.line(
@@ -1053,7 +1198,8 @@ class BikeSharingAnalysis:
                 title="Daily Revenue Trend",
                 labels={'daily_revenue': 'Revenue ($)', 'date': 'Date'}
             )
-            st.plotly_chart(fig, use_container_width=True)
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True, key="daily_revenue_line")
         
         with col2:
             fig = px.line(
@@ -1063,15 +1209,16 @@ class BikeSharingAnalysis:
                 title="Daily Trip Volume",
                 labels={'daily_trips': 'Number of Trips', 'date': 'Date'}
             )
-            st.plotly_chart(fig, use_container_width=True)
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True, key="daily_trips_line")
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # Performance summary
+        # Performance summary in responsive layout
         st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
         st.subheader("Performance Summary")
         
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns([1, 1])
         
         with col1:
             # Peak hour performance
